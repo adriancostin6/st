@@ -113,6 +113,79 @@ typedef struct {
  * foreground, background, cursor, reverse cursor
  */
 static const ColorScheme schemes[] = {
+	{ .name = "Rose Pine Dawn", .colors = {
+		/* 8 normal colors */
+        "#f2e9e1",
+        "#b4637a",
+        "#56949f",
+        "#ea9d34",
+        "#286983",
+        "#907aa9",
+        "#d7827e",
+        "#575279",
+		/* 8 bright colors */
+        "#9893a5",
+        "#b4637a",
+        "#56949f",
+        "#ea9d34",
+        "#286983",
+        "#907aa9",
+        "#d7827e",
+        "#575279",
+	[256] = "#faf4ed", /* default foreground colour */
+	[257] = "#EFF1F5", /* default background colour */
+	[258] = "#DC8A78", /*575268*/
+	}, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
+
+	{ .name = "Rose Pine", .colors = {
+		/* 8 normal colors */
+        "#26233a",
+        "#eb6f92",
+        "#9ccfd8",
+        "#f6c177",
+        "#31748f",
+        "#c4a7e7",
+        "#ebbcba",
+        "#e0def4",
+		/* 8 bright colors */
+        "#6e6a86",
+        "#eb6f92",
+        "#9ccfd8",
+        "#f6c177",
+        "#31748f",
+        "#c4a7e7",
+        "#ebbcba",
+        "#e0def4",
+	[256] = "#191724", /* default foreground colour */
+	[257] = "#EFF1F5", /* default background colour */
+	[258] = "#DC8A78", /*575268*/
+	}, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
+
+	{ .name = "Rose Pine Moon", .colors = {
+		/* 8 normal colors */
+        "#393552",
+        "#eb6f92",
+        "#9ccfd8",
+        "#f6c177",
+        "#3e8fb0",
+        "#c4a7e7",
+        "#ea9a97",
+        "#e0def4",
+		/* 8 bright colors */
+        "#6e6a86",
+        "#eb6f92",
+        "#9ccfd8",
+        "#f6c177",
+        "#3e8fb0",
+        "#c4a7e7",
+        "#ea9a97",
+        "#e0def4",
+
+	[256] = "#232136", /* default foreground colour */
+	[257] = "#EFF1F5", /* default background colour */
+	[258] = "#DC8A78", /*575268*/
+	}, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
+
 	{ .name = "Catppuccin Latte", .colors = {
 		/* 8 normal colors */
 		"#5C5F77",
