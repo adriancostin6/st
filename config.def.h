@@ -6,8 +6,26 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *fonts[] = {
-	"Liberation Mono:pixelsize=12:antialias=true:autohint=true",
-	"Gohu GohuFont:pixelsize=11:antialias=false:autohint=false",
+
+    //IosevkaTermSlab Nerd Font,IosevkaTermSlab NF,IosevkaTermSlab NF Light:style=Light,Regular
+    //IosevkaTermSlab Nerd Font,IosevkaTermSlab NF:style=Regular
+    //IosevkaTermSlab Nerd Font,IosevkaTermSlab NF,IosevkaTermSlab NF Medium:style=Medium,Regular
+    //IosevkaTermSlab Nerd Font Propo,IosevkaTermSlab NFP,IosevkaTermSlab NFP Light:style=Light,Regular
+    //IosevkaTermSlab Nerd Font Propo,IosevkaTermSlab NFP:style=Regular
+    //IosevkaTermSlab Nerd Font Propo,IosevkaTermSlab NFP,IosevkaTermSlab NFP Medium:style=Medium,Regular
+    //IosevkaTermSlab Nerd Font Mono,IosevkaTermSlab NFM,IosevkaTermSlab NFM Light:style=Light,Regular
+    //IosevkaTermSlab Nerd Font Mono,IosevkaTermSlab NFM:style=Regular
+    //IosevkaTermSlab Nerd Font Mono,IosevkaTermSlab NFM,IosevkaTermSlab NFM Medium:style=Medium,Regular
+    // Mono
+    "IosevkaTermSlab Nerd Font Mono:style=Light:pixelsize=12",
+    "IosevkaTermSlab Nerd Font Mono:style=Regular:pixelsize=12",
+    "IosevkaTermSlab Nerd Font Mono:style=Medium:pixelsize=12",
+    // Regular
+    "IosevkaTermSlab Nerd Font:style=Light:pixelsize=12",
+    "IosevkaTermSlab Nerd Font:style=Regular:pixelsize=12",
+    "IosevkaTermSlab Nerd Font:style=Medium:pixelsize=12",
+
+    "Liberation Mono:pixelsize=12",
 };
 static size_t currentfont = 0;
 static int borderpx = 2;
@@ -93,23 +111,23 @@ char *termname = "st-256color";
  * the st.info and appropriately install the st.info in the environment where
  * you use this st version.
  *
- *	it#$tabspaces,
+ *  it#$tabspaces,
  *
  * Secondly make sure your kernel is not expanding tabs. When running `stty
  * -a` »tab0« should appear. You can tell the terminal to not expand tabs by
  *  running following command:
  *
- *	stty tabs
+ *  stty tabs
  */
 unsigned int tabspaces = 8;
 
 typedef struct {
-	const char* name;
-	const char* const colors[259]; /* terminal colors */
-	unsigned int fg;               /* foreground */
-	unsigned int bg;               /* background */
-	unsigned int cs;               /* cursor */
-	unsigned int rcs;              /* reverse cursor */
+    const char* name;
+    const char* const colors[259]; /* terminal colors */
+    unsigned int fg;               /* foreground */
+    unsigned int bg;               /* background */
+    unsigned int cs;               /* cursor */
+    unsigned int rcs;              /* reverse cursor */
 } ColorScheme;
 /*
  * Terminal colors (16 first used in escape sequence,
@@ -117,8 +135,8 @@ typedef struct {
  * foreground, background, cursor, reverse cursor
  */
 static const ColorScheme schemes[] = {
-	{ .name = "Rose Pine Dawn", .colors = {
-		/* 8 normal colors */
+    { .name = "Rose Pine Dawn", .colors = {
+        /* 8 normal colors */
         "#f2e9e1",
         "#b4637a",
         "#56949f",
@@ -127,7 +145,7 @@ static const ColorScheme schemes[] = {
         "#907aa9",
         "#d7827e",
         "#575279",
-		/* 8 bright colors */
+        /* 8 bright colors */
         "#9893a5",
         "#b4637a",
         "#56949f",
@@ -136,13 +154,13 @@ static const ColorScheme schemes[] = {
         "#907aa9",
         "#d7827e",
         "#575279",
-	[256] = "#faf4ed", /* default foreground colour */
-	[257] = "#EFF1F5", /* default background colour */
-	[258] = "#DC8A78", /*575268*/
-	}, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
+    [256] = "#faf4ed", /* default foreground colour */
+    [257] = "#EFF1F5", /* default background colour */
+    [258] = "#DC8A78", /*575268*/
+    }, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
 
-	{ .name = "Rose Pine", .colors = {
-		/* 8 normal colors */
+    { .name = "Rose Pine", .colors = {
+        /* 8 normal colors */
         "#26233a",
         "#eb6f92",
         "#9ccfd8",
@@ -151,7 +169,7 @@ static const ColorScheme schemes[] = {
         "#c4a7e7",
         "#ebbcba",
         "#e0def4",
-		/* 8 bright colors */
+        /* 8 bright colors */
         "#6e6a86",
         "#eb6f92",
         "#9ccfd8",
@@ -160,13 +178,13 @@ static const ColorScheme schemes[] = {
         "#c4a7e7",
         "#ebbcba",
         "#e0def4",
-	[256] = "#191724", /* default foreground colour */
-	[257] = "#EFF1F5", /* default background colour */
-	[258] = "#DC8A78", /*575268*/
-	}, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
+    [256] = "#191724", /* default foreground colour */
+    [257] = "#EFF1F5", /* default background colour */
+    [258] = "#DC8A78", /*575268*/
+    }, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
 
-	{ .name = "Rose Pine Moon", .colors = {
-		/* 8 normal colors */
+    { .name = "Rose Pine Moon", .colors = {
+        /* 8 normal colors */
         "#393552",
         "#eb6f92",
         "#9ccfd8",
@@ -175,7 +193,7 @@ static const ColorScheme schemes[] = {
         "#c4a7e7",
         "#ea9a97",
         "#e0def4",
-		/* 8 bright colors */
+        /* 8 bright colors */
         "#6e6a86",
         "#eb6f92",
         "#9ccfd8",
@@ -185,179 +203,179 @@ static const ColorScheme schemes[] = {
         "#ea9a97",
         "#e0def4",
 
-	[256] = "#232136", /* default foreground colour */
-	[257] = "#EFF1F5", /* default background colour */
-	[258] = "#DC8A78", /*575268*/
-	}, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
+    [256] = "#232136", /* default foreground colour */
+    [257] = "#EFF1F5", /* default background colour */
+    [258] = "#DC8A78", /*575268*/
+    }, .fg = 7, .bg = 256, .cs = 7, .rcs = 7},
 
-	{ .name = "Catppuccin Latte", .colors = {
-		/* 8 normal colors */
-		"#5C5F77",
-		"#D20F39",
-		"#40A02B",
-		"#DF8E1D",
-		"#1E66F5",
-		"#EA76CB",
-		"#179299",
-		"#ACB0BE",
+    { .name = "Catppuccin Latte", .colors = {
+        /* 8 normal colors */
+        "#5C5F77",
+        "#D20F39",
+        "#40A02B",
+        "#DF8E1D",
+        "#1E66F5",
+        "#EA76CB",
+        "#179299",
+        "#ACB0BE",
 
-		/* 8 bright colors */
-		"#6C6F85",
-		"#D20F39",
-		"#40A02B",
-		"#DF8E1D",
-		"#1E66F5",
-		"#EA76CB",
-		"#179299",
-		"#BCC0CC",
+        /* 8 bright colors */
+        "#6C6F85",
+        "#D20F39",
+        "#40A02B",
+        "#DF8E1D",
+        "#1E66F5",
+        "#EA76CB",
+        "#179299",
+        "#BCC0CC",
 
-	[256] = "#4C4F69", /* default foreground colour */
-	[257] = "#EFF1F5", /* default background colour */
-	[258] = "#DC8A78", /*575268*/
-	}, .fg = 256, .bg = 257, .cs = 258, .rcs = 258},
+    [256] = "#4C4F69", /* default foreground colour */
+    [257] = "#EFF1F5", /* default background colour */
+    [258] = "#DC8A78", /*575268*/
+    }, .fg = 256, .bg = 257, .cs = 258, .rcs = 258},
 
-	// catppuccin frappe
-	{ .name = "Catppuccin Frappe", .colors = {
-		/* 8 normal colors */
-		"#51576D",
-		"#E78284",
-		"#A6D189",
-		"#E5C890",
-		"#8CAAEE",
-		"#F4B8E4",
-		"#81C8BE",
-		"#B5BFE2",
+    // catppuccin frappe
+    { .name = "Catppuccin Frappe", .colors = {
+        /* 8 normal colors */
+        "#51576D",
+        "#E78284",
+        "#A6D189",
+        "#E5C890",
+        "#8CAAEE",
+        "#F4B8E4",
+        "#81C8BE",
+        "#B5BFE2",
 
-		/* 8 bright colors */
-		"#626880",
-		"#E78284",
-		"#A6D189",
-		"#E5C890",
-		"#8CAAEE",
-		"#F4B8E4",
-		"#81C8BE",
-		"#A5ADCE",
+        /* 8 bright colors */
+        "#626880",
+        "#E78284",
+        "#A6D189",
+        "#E5C890",
+        "#8CAAEE",
+        "#F4B8E4",
+        "#81C8BE",
+        "#A5ADCE",
 
-	[256] = "#C6D0F5", /* default foreground colour */
-	[257] = "#303446", /* default background colour */
-	[258] = "#F2D5CF", /*575268*/
-	}, .fg = 256, .bg = 257, .cs = 258, .rcs = 258},
+    [256] = "#C6D0F5", /* default foreground colour */
+    [257] = "#303446", /* default background colour */
+    [258] = "#F2D5CF", /*575268*/
+    }, .fg = 256, .bg = 257, .cs = 258, .rcs = 258},
 
-	{ .name = "Catppuccin Macchiato", .colors = {
-		/* 8 normal colors */
-		"#494D64",
-		"#ED8796",
-		"#A6DA95",
-		"#EED49F",
-		"#8AADF4",
-		"#F5BDE6",
-		"#8BD5CA",
-		"#B8C0E0",
+    { .name = "Catppuccin Macchiato", .colors = {
+        /* 8 normal colors */
+        "#494D64",
+        "#ED8796",
+        "#A6DA95",
+        "#EED49F",
+        "#8AADF4",
+        "#F5BDE6",
+        "#8BD5CA",
+        "#B8C0E0",
 
-		/* 8 bright colors */
-		"#5B6078",
-		"#ED8796",
-		"#A6DA95",
-		"#EED49F",
-		"#8AADF4",
-		"#F5BDE6",
-		"#8BD5CA",
-		"#A5ADCB",
+        /* 8 bright colors */
+        "#5B6078",
+        "#ED8796",
+        "#A6DA95",
+        "#EED49F",
+        "#8AADF4",
+        "#F5BDE6",
+        "#8BD5CA",
+        "#A5ADCB",
 
-	[256] = "#CAD3F5", /* default foreground colour */
-	[257] = "#24273A", /* default background colour */
-	[258] = "#F4DBD6", /*575268*/
-	}, .fg = 256, .bg = 257, .cs = 258, .rcs = 258},
+    [256] = "#CAD3F5", /* default foreground colour */
+    [257] = "#24273A", /* default background colour */
+    [258] = "#F4DBD6", /*575268*/
+    }, .fg = 256, .bg = 257, .cs = 258, .rcs = 258},
 
-	{ .name = "Catppuccin Mocha", .colors = {
-		/* 8 normal colors */
-		"#45475A",
-		"#F38BA8",
-		"#A6E3A1",
-		"#F9E2AF",
-		"#89B4FA",
-		"#F5C2E7",
-		"#94E2D5",
-		"#BAC2DE",
+    { .name = "Catppuccin Mocha", .colors = {
+        /* 8 normal colors */
+        "#45475A",
+        "#F38BA8",
+        "#A6E3A1",
+        "#F9E2AF",
+        "#89B4FA",
+        "#F5C2E7",
+        "#94E2D5",
+        "#BAC2DE",
 
-		/* 8 bright colors */
-		"#585B70",
-		"#F38BA8",
-		"#A6E3A1",
-		"#F9E2AF",
-		"#89B4FA",
-		"#F5C2E7",
-		"#94E2D5",
-		"#A6ADC8",
+        /* 8 bright colors */
+        "#585B70",
+        "#F38BA8",
+        "#A6E3A1",
+        "#F9E2AF",
+        "#89B4FA",
+        "#F5C2E7",
+        "#94E2D5",
+        "#A6ADC8",
 
-	[256] = "#CDD6F4", /* default foreground colour */
-	[257] = "#1E1E2E", /* default background colour */
-	[258] = "#F5E0DC", /*575268*/
-	}, .fg = 256, .bg = 257, .cs = 258, .rcs = 258},
+    [256] = "#CDD6F4", /* default foreground colour */
+    [257] = "#1E1E2E", /* default background colour */
+    [258] = "#F5E0DC", /*575268*/
+    }, .fg = 256, .bg = 257, .cs = 258, .rcs = 258},
 
-	// st (dark)
-	{ .name = "st dark", .colors = {
-		"black", "red3", "green3", "yellow3",
-		"blue2", "magenta3", "cyan3", "gray90",
-		"gray50", "red", "green", "yellow",
-		"#5c5cff", "magenta", "cyan", "white",
-		[256]="#cccccc", "#555555"}, 7, 0, 256, 257},
+    // st (dark)
+    { .name = "st dark", .colors = {
+        "black", "red3", "green3", "yellow3",
+        "blue2", "magenta3", "cyan3", "gray90",
+        "gray50", "red", "green", "yellow",
+        "#5c5cff", "magenta", "cyan", "white",
+        [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
 
-	// Alacritty (dark)
-	{ .name = "Allacrity dark", .colors = {
-		"#1d1f21", "#cc6666", "#b5bd68", "#f0c674",
-		"#81a2be", "#b294bb", "#8abeb7", "#c5c8c6",
-		"#666666", "#d54e53", "#b9ca4a", "#e7c547",
-		"#7aa6da", "#c397d8", "#70c0b1", "#eaeaea",
-		[256]="#cccccc", "#555555"}, 7, 0, 256, 257},
+    // Alacritty (dark)
+    { .name = "Allacrity dark", .colors = {
+        "#1d1f21", "#cc6666", "#b5bd68", "#f0c674",
+        "#81a2be", "#b294bb", "#8abeb7", "#c5c8c6",
+        "#666666", "#d54e53", "#b9ca4a", "#e7c547",
+        "#7aa6da", "#c397d8", "#70c0b1", "#eaeaea",
+        [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
 
-	// One Half dark
-	{ .name = "One Half dark", .colors = {
-		"#282c34", "#e06c75", "#98c379", "#e5c07b",
-		"#61afef", "#c678dd", "#56b6c2", "#dcdfe4",
-		"#282c34", "#e06c75", "#98c379", "#e5c07b",
-		"#61afef", "#c678dd", "#56b6c2", "#dcdfe4",
-		[256]="#cccccc", "#555555"}, 7, 0, 256, 257},
+    // One Half dark
+    { .name = "One Half dark", .colors = {
+        "#282c34", "#e06c75", "#98c379", "#e5c07b",
+        "#61afef", "#c678dd", "#56b6c2", "#dcdfe4",
+        "#282c34", "#e06c75", "#98c379", "#e5c07b",
+        "#61afef", "#c678dd", "#56b6c2", "#dcdfe4",
+        [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
 
-	// One Half light
-	{ .name = "One Half light", .colors = {
-		"#fafafa", "#e45649", "#50a14f", "#c18401",
-		"#0184bc", "#a626a4", "#0997b3", "#383a42",
-		"#fafafa", "#e45649", "#50a14f", "#c18401",
-		"#0184bc", "#a626a4", "#0997b3", "#383a42",
-		[256]="#cccccc", "#555555"}, 7, 0, 256, 257},
+    // One Half light
+    { .name = "One Half light", .colors = {
+        "#fafafa", "#e45649", "#50a14f", "#c18401",
+        "#0184bc", "#a626a4", "#0997b3", "#383a42",
+        "#fafafa", "#e45649", "#50a14f", "#c18401",
+        "#0184bc", "#a626a4", "#0997b3", "#383a42",
+        [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
 
-	// Solarized dark
-	{ .name = "Solarized dark", .colors = {
-		"#073642", "#dc322f", "#859900", "#b58900",
-		"#268bd2", "#d33682", "#2aa198", "#eee8d5",
-		"#002b36", "#cb4b16", "#586e75", "#657b83",
-		"#839496", "#6c71c4", "#93a1a1", "#fdf6e3",
-		[256]="#93a1a1", "#fdf6e3"}, 12, 8, 256, 257},
+    // Solarized dark
+    { .name = "Solarized dark", .colors = {
+        "#073642", "#dc322f", "#859900", "#b58900",
+        "#268bd2", "#d33682", "#2aa198", "#eee8d5",
+        "#002b36", "#cb4b16", "#586e75", "#657b83",
+        "#839496", "#6c71c4", "#93a1a1", "#fdf6e3",
+        [256]="#93a1a1", "#fdf6e3"}, 12, 8, 256, 257},
 
-	// Solarized light
-	{ .name = "Solarized light", .colors = {
-		"#eee8d5", "#dc322f", "#859900", "#b58900",
-		"#268bd2", "#d33682", "#2aa198", "#073642",
-		"#fdf6e3", "#cb4b16", "#93a1a1", "#839496",
-		"#657b83", "#6c71c4", "#586e75", "#002b36",
-		[256]="#586e75", "#002b36"}, 12, 8, 256, 257},
+    // Solarized light
+    { .name = "Solarized light", .colors = {
+        "#eee8d5", "#dc322f", "#859900", "#b58900",
+        "#268bd2", "#d33682", "#2aa198", "#073642",
+        "#fdf6e3", "#cb4b16", "#93a1a1", "#839496",
+        "#657b83", "#6c71c4", "#586e75", "#002b36",
+        [256]="#586e75", "#002b36"}, 12, 8, 256, 257},
 
-	// Gruvbox dark
-	{.name = "Gruvbox dark", .colors = {
-		"#282828", "#cc241d", "#98971a", "#d79921",
-		"#458588", "#b16286", "#689d6a", "#a89984",
-		"#928374", "#fb4934", "#b8bb26", "#fabd2f",
-		"#83a598", "#d3869b", "#8ec07c", "#ebdbb2",
-		[256]="#ebdbb2", "#555555"}, 15, 0, 256, 257},
+    // Gruvbox dark
+    {.name = "Gruvbox dark", .colors = {
+        "#282828", "#cc241d", "#98971a", "#d79921",
+        "#458588", "#b16286", "#689d6a", "#a89984",
+        "#928374", "#fb4934", "#b8bb26", "#fabd2f",
+        "#83a598", "#d3869b", "#8ec07c", "#ebdbb2",
+        [256]="#ebdbb2", "#555555"}, 15, 0, 256, 257},
 
-	// Gruvbox light
-	{ .name = "Gruvbox light", .colors = {
-		"#fbf1c7", "#cc241d", "#98971a", "#d79921",
-		"#458588", "#b16286", "#689d6a", "#7c6f64",
-		"#928374", "#9d0006", "#79740e", "#b57614",
-		"#076678", "#8f3f71", "#427b58", "#3c3836",
-		[256]="#3c3836", "#555555"}, 15, 0, 256, 257},
+    // Gruvbox light
+    { .name = "Gruvbox light", .colors = {
+        "#fbf1c7", "#cc241d", "#98971a", "#d79921",
+        "#458588", "#b16286", "#689d6a", "#7c6f64",
+        "#928374", "#9d0006", "#79740e", "#b57614",
+        "#076678", "#8f3f71", "#427b58", "#3c3836",
+        [256]="#3c3836", "#555555"}, 15, 0, 256, 257},
 };
 
 static const char * const * colorname;
@@ -426,12 +444,12 @@ static uint forcemousemod = ShiftMask;
  * Beware that overloading Button1 will disable the selection.
  */
 static MouseShortcut mshortcuts[] = {
-	/* mask                 button   function        argument       release */
-	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
-	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
-	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
-	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
-	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
+    /* mask                 button   function        argument       release */
+    { XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+    { ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
+    { XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
+    { ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
+    { XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
 };
 
 /* Internal keyboard shortcuts. */
@@ -439,31 +457,31 @@ static MouseShortcut mshortcuts[] = {
 #define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_S,           cyclefonts,     {}        },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ MODKEY,               XK_1,           selectscheme,   {.i =  0} },
-	{ MODKEY,               XK_2,           selectscheme,   {.i =  1} },
-	{ MODKEY,               XK_3,           selectscheme,   {.i =  2} },
-	{ MODKEY,               XK_4,           selectscheme,   {.i =  3} },
-	{ MODKEY,               XK_5,           selectscheme,   {.i =  4} },
-	{ MODKEY,               XK_6,           selectscheme,   {.i =  5} },
-	{ MODKEY,               XK_7,           selectscheme,   {.i =  6} },
-	{ MODKEY,               XK_8,           selectscheme,   {.i =  7} },
-	{ MODKEY,               XK_9,           selectscheme,   {.i =  8} },
-	{ MODKEY,               XK_0,           nextscheme,     {.i = +1} },
-	{ MODKEY|ControlMask,   XK_0,           nextscheme,     {.i = -1} },
+    /* mask                 keysym          function        argument */
+    { XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
+    { ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
+    { ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
+    { XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
+    { TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
+    { TERMMOD,              XK_Next,        zoom,           {.f = -1} },
+    { TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
+    { TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
+    { TERMMOD,              XK_V,           clippaste,      {.i =  0} },
+    { TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
+    { TERMMOD,              XK_S,           cyclefonts,     {}        },
+    { ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+    { TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+    { MODKEY,               XK_1,           selectscheme,   {.i =  0} },
+    { MODKEY,               XK_2,           selectscheme,   {.i =  1} },
+    { MODKEY,               XK_3,           selectscheme,   {.i =  2} },
+    { MODKEY,               XK_4,           selectscheme,   {.i =  3} },
+    { MODKEY,               XK_5,           selectscheme,   {.i =  4} },
+    { MODKEY,               XK_6,           selectscheme,   {.i =  5} },
+    { MODKEY,               XK_7,           selectscheme,   {.i =  6} },
+    { MODKEY,               XK_8,           selectscheme,   {.i =  7} },
+    { MODKEY,               XK_9,           selectscheme,   {.i =  8} },
+    { MODKEY,               XK_0,           nextscheme,     {.i = +1} },
+    { MODKEY|ControlMask,   XK_0,           nextscheme,     {.i = -1} },
 };
 
 /*
@@ -504,216 +522,216 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  * world. Please decide about changes wisely.
  */
 static Key key[] = {
-	/* keysym           mask            string      appkey appcursor */
-	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
-	{ XK_KP_Home,       ShiftMask,      "\033[1;2H",     0,   +1},
-	{ XK_KP_Home,       XK_ANY_MOD,     "\033[H",        0,   -1},
-	{ XK_KP_Home,       XK_ANY_MOD,     "\033[1~",       0,   +1},
-	{ XK_KP_Up,         XK_ANY_MOD,     "\033Ox",       +1,    0},
-	{ XK_KP_Up,         XK_ANY_MOD,     "\033[A",        0,   -1},
-	{ XK_KP_Up,         XK_ANY_MOD,     "\033OA",        0,   +1},
-	{ XK_KP_Down,       XK_ANY_MOD,     "\033Or",       +1,    0},
-	{ XK_KP_Down,       XK_ANY_MOD,     "\033[B",        0,   -1},
-	{ XK_KP_Down,       XK_ANY_MOD,     "\033OB",        0,   +1},
-	{ XK_KP_Left,       XK_ANY_MOD,     "\033Ot",       +1,    0},
-	{ XK_KP_Left,       XK_ANY_MOD,     "\033[D",        0,   -1},
-	{ XK_KP_Left,       XK_ANY_MOD,     "\033OD",        0,   +1},
-	{ XK_KP_Right,      XK_ANY_MOD,     "\033Ov",       +1,    0},
-	{ XK_KP_Right,      XK_ANY_MOD,     "\033[C",        0,   -1},
-	{ XK_KP_Right,      XK_ANY_MOD,     "\033OC",        0,   +1},
-	{ XK_KP_Prior,      ShiftMask,      "\033[5;2~",     0,    0},
-	{ XK_KP_Prior,      XK_ANY_MOD,     "\033[5~",       0,    0},
-	{ XK_KP_Begin,      XK_ANY_MOD,     "\033[E",        0,    0},
-	{ XK_KP_End,        ControlMask,    "\033[J",       -1,    0},
-	{ XK_KP_End,        ControlMask,    "\033[1;5F",    +1,    0},
-	{ XK_KP_End,        ShiftMask,      "\033[K",       -1,    0},
-	{ XK_KP_End,        ShiftMask,      "\033[1;2F",    +1,    0},
-	{ XK_KP_End,        XK_ANY_MOD,     "\033[4~",       0,    0},
-	{ XK_KP_Next,       ShiftMask,      "\033[6;2~",     0,    0},
-	{ XK_KP_Next,       XK_ANY_MOD,     "\033[6~",       0,    0},
-	{ XK_KP_Insert,     ShiftMask,      "\033[2;2~",    +1,    0},
-	{ XK_KP_Insert,     ShiftMask,      "\033[4l",      -1,    0},
-	{ XK_KP_Insert,     ControlMask,    "\033[L",       -1,    0},
-	{ XK_KP_Insert,     ControlMask,    "\033[2;5~",    +1,    0},
-	{ XK_KP_Insert,     XK_ANY_MOD,     "\033[4h",      -1,    0},
-	{ XK_KP_Insert,     XK_ANY_MOD,     "\033[2~",      +1,    0},
-	{ XK_KP_Delete,     ControlMask,    "\033[M",       -1,    0},
-	{ XK_KP_Delete,     ControlMask,    "\033[3;5~",    +1,    0},
-	{ XK_KP_Delete,     ShiftMask,      "\033[2K",      -1,    0},
-	{ XK_KP_Delete,     ShiftMask,      "\033[3;2~",    +1,    0},
-	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
-	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
-	{ XK_KP_Multiply,   XK_ANY_MOD,     "\033Oj",       +2,    0},
-	{ XK_KP_Add,        XK_ANY_MOD,     "\033Ok",       +2,    0},
-	{ XK_KP_Enter,      XK_ANY_MOD,     "\033OM",       +2,    0},
-	{ XK_KP_Enter,      XK_ANY_MOD,     "\r",           -1,    0},
-	{ XK_KP_Subtract,   XK_ANY_MOD,     "\033Om",       +2,    0},
-	{ XK_KP_Decimal,    XK_ANY_MOD,     "\033On",       +2,    0},
-	{ XK_KP_Divide,     XK_ANY_MOD,     "\033Oo",       +2,    0},
-	{ XK_KP_0,          XK_ANY_MOD,     "\033Op",       +2,    0},
-	{ XK_KP_1,          XK_ANY_MOD,     "\033Oq",       +2,    0},
-	{ XK_KP_2,          XK_ANY_MOD,     "\033Or",       +2,    0},
-	{ XK_KP_3,          XK_ANY_MOD,     "\033Os",       +2,    0},
-	{ XK_KP_4,          XK_ANY_MOD,     "\033Ot",       +2,    0},
-	{ XK_KP_5,          XK_ANY_MOD,     "\033Ou",       +2,    0},
-	{ XK_KP_6,          XK_ANY_MOD,     "\033Ov",       +2,    0},
-	{ XK_KP_7,          XK_ANY_MOD,     "\033Ow",       +2,    0},
-	{ XK_KP_8,          XK_ANY_MOD,     "\033Ox",       +2,    0},
-	{ XK_KP_9,          XK_ANY_MOD,     "\033Oy",       +2,    0},
-	{ XK_Up,            ShiftMask,      "\033[1;2A",     0,    0},
-	{ XK_Up,            Mod1Mask,       "\033[1;3A",     0,    0},
-	{ XK_Up,         ShiftMask|Mod1Mask,"\033[1;4A",     0,    0},
-	{ XK_Up,            ControlMask,    "\033[1;5A",     0,    0},
-	{ XK_Up,      ShiftMask|ControlMask,"\033[1;6A",     0,    0},
-	{ XK_Up,       ControlMask|Mod1Mask,"\033[1;7A",     0,    0},
-	{ XK_Up,ShiftMask|ControlMask|Mod1Mask,"\033[1;8A",  0,    0},
-	{ XK_Up,            XK_ANY_MOD,     "\033[A",        0,   -1},
-	{ XK_Up,            XK_ANY_MOD,     "\033OA",        0,   +1},
-	{ XK_Down,          ShiftMask,      "\033[1;2B",     0,    0},
-	{ XK_Down,          Mod1Mask,       "\033[1;3B",     0,    0},
-	{ XK_Down,       ShiftMask|Mod1Mask,"\033[1;4B",     0,    0},
-	{ XK_Down,          ControlMask,    "\033[1;5B",     0,    0},
-	{ XK_Down,    ShiftMask|ControlMask,"\033[1;6B",     0,    0},
-	{ XK_Down,     ControlMask|Mod1Mask,"\033[1;7B",     0,    0},
-	{ XK_Down,ShiftMask|ControlMask|Mod1Mask,"\033[1;8B",0,    0},
-	{ XK_Down,          XK_ANY_MOD,     "\033[B",        0,   -1},
-	{ XK_Down,          XK_ANY_MOD,     "\033OB",        0,   +1},
-	{ XK_Left,          ShiftMask,      "\033[1;2D",     0,    0},
-	{ XK_Left,          Mod1Mask,       "\033[1;3D",     0,    0},
-	{ XK_Left,       ShiftMask|Mod1Mask,"\033[1;4D",     0,    0},
-	{ XK_Left,          ControlMask,    "\033[1;5D",     0,    0},
-	{ XK_Left,    ShiftMask|ControlMask,"\033[1;6D",     0,    0},
-	{ XK_Left,     ControlMask|Mod1Mask,"\033[1;7D",     0,    0},
-	{ XK_Left,ShiftMask|ControlMask|Mod1Mask,"\033[1;8D",0,    0},
-	{ XK_Left,          XK_ANY_MOD,     "\033[D",        0,   -1},
-	{ XK_Left,          XK_ANY_MOD,     "\033OD",        0,   +1},
-	{ XK_Right,         ShiftMask,      "\033[1;2C",     0,    0},
-	{ XK_Right,         Mod1Mask,       "\033[1;3C",     0,    0},
-	{ XK_Right,      ShiftMask|Mod1Mask,"\033[1;4C",     0,    0},
-	{ XK_Right,         ControlMask,    "\033[1;5C",     0,    0},
-	{ XK_Right,   ShiftMask|ControlMask,"\033[1;6C",     0,    0},
-	{ XK_Right,    ControlMask|Mod1Mask,"\033[1;7C",     0,    0},
-	{ XK_Right,ShiftMask|ControlMask|Mod1Mask,"\033[1;8C",0,   0},
-	{ XK_Right,         XK_ANY_MOD,     "\033[C",        0,   -1},
-	{ XK_Right,         XK_ANY_MOD,     "\033OC",        0,   +1},
-	{ XK_ISO_Left_Tab,  ShiftMask,      "\033[Z",        0,    0},
-	{ XK_Return,        Mod1Mask,       "\033\r",        0,    0},
-	{ XK_Return,        XK_ANY_MOD,     "\r",            0,    0},
-	{ XK_Insert,        ShiftMask,      "\033[4l",      -1,    0},
-	{ XK_Insert,        ShiftMask,      "\033[2;2~",    +1,    0},
-	{ XK_Insert,        ControlMask,    "\033[L",       -1,    0},
-	{ XK_Insert,        ControlMask,    "\033[2;5~",    +1,    0},
-	{ XK_Insert,        XK_ANY_MOD,     "\033[4h",      -1,    0},
-	{ XK_Insert,        XK_ANY_MOD,     "\033[2~",      +1,    0},
-	{ XK_Delete,        ControlMask,    "\033[M",       -1,    0},
-	{ XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
-	{ XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
-	{ XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
-	{ XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
-	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
-	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
-	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
-	{ XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
-	{ XK_Home,          ShiftMask,      "\033[1;2H",     0,   +1},
-	{ XK_Home,          XK_ANY_MOD,     "\033[H",        0,   -1},
-	{ XK_Home,          XK_ANY_MOD,     "\033[1~",       0,   +1},
-	{ XK_End,           ControlMask,    "\033[J",       -1,    0},
-	{ XK_End,           ControlMask,    "\033[1;5F",    +1,    0},
-	{ XK_End,           ShiftMask,      "\033[K",       -1,    0},
-	{ XK_End,           ShiftMask,      "\033[1;2F",    +1,    0},
-	{ XK_End,           XK_ANY_MOD,     "\033[4~",       0,    0},
-	{ XK_Prior,         ControlMask,    "\033[5;5~",     0,    0},
-	{ XK_Prior,         ShiftMask,      "\033[5;2~",     0,    0},
-	{ XK_Prior,         XK_ANY_MOD,     "\033[5~",       0,    0},
-	{ XK_Next,          ControlMask,    "\033[6;5~",     0,    0},
-	{ XK_Next,          ShiftMask,      "\033[6;2~",     0,    0},
-	{ XK_Next,          XK_ANY_MOD,     "\033[6~",       0,    0},
-	{ XK_F1,            XK_NO_MOD,      "\033OP" ,       0,    0},
-	{ XK_F1, /* F13 */  ShiftMask,      "\033[1;2P",     0,    0},
-	{ XK_F1, /* F25 */  ControlMask,    "\033[1;5P",     0,    0},
-	{ XK_F1, /* F37 */  Mod4Mask,       "\033[1;6P",     0,    0},
-	{ XK_F1, /* F49 */  Mod1Mask,       "\033[1;3P",     0,    0},
-	{ XK_F1, /* F61 */  Mod3Mask,       "\033[1;4P",     0,    0},
-	{ XK_F2,            XK_NO_MOD,      "\033OQ" ,       0,    0},
-	{ XK_F2, /* F14 */  ShiftMask,      "\033[1;2Q",     0,    0},
-	{ XK_F2, /* F26 */  ControlMask,    "\033[1;5Q",     0,    0},
-	{ XK_F2, /* F38 */  Mod4Mask,       "\033[1;6Q",     0,    0},
-	{ XK_F2, /* F50 */  Mod1Mask,       "\033[1;3Q",     0,    0},
-	{ XK_F2, /* F62 */  Mod3Mask,       "\033[1;4Q",     0,    0},
-	{ XK_F3,            XK_NO_MOD,      "\033OR" ,       0,    0},
-	{ XK_F3, /* F15 */  ShiftMask,      "\033[1;2R",     0,    0},
-	{ XK_F3, /* F27 */  ControlMask,    "\033[1;5R",     0,    0},
-	{ XK_F3, /* F39 */  Mod4Mask,       "\033[1;6R",     0,    0},
-	{ XK_F3, /* F51 */  Mod1Mask,       "\033[1;3R",     0,    0},
-	{ XK_F3, /* F63 */  Mod3Mask,       "\033[1;4R",     0,    0},
-	{ XK_F4,            XK_NO_MOD,      "\033OS" ,       0,    0},
-	{ XK_F4, /* F16 */  ShiftMask,      "\033[1;2S",     0,    0},
-	{ XK_F4, /* F28 */  ControlMask,    "\033[1;5S",     0,    0},
-	{ XK_F4, /* F40 */  Mod4Mask,       "\033[1;6S",     0,    0},
-	{ XK_F4, /* F52 */  Mod1Mask,       "\033[1;3S",     0,    0},
-	{ XK_F5,            XK_NO_MOD,      "\033[15~",      0,    0},
-	{ XK_F5, /* F17 */  ShiftMask,      "\033[15;2~",    0,    0},
-	{ XK_F5, /* F29 */  ControlMask,    "\033[15;5~",    0,    0},
-	{ XK_F5, /* F41 */  Mod4Mask,       "\033[15;6~",    0,    0},
-	{ XK_F5, /* F53 */  Mod1Mask,       "\033[15;3~",    0,    0},
-	{ XK_F6,            XK_NO_MOD,      "\033[17~",      0,    0},
-	{ XK_F6, /* F18 */  ShiftMask,      "\033[17;2~",    0,    0},
-	{ XK_F6, /* F30 */  ControlMask,    "\033[17;5~",    0,    0},
-	{ XK_F6, /* F42 */  Mod4Mask,       "\033[17;6~",    0,    0},
-	{ XK_F6, /* F54 */  Mod1Mask,       "\033[17;3~",    0,    0},
-	{ XK_F7,            XK_NO_MOD,      "\033[18~",      0,    0},
-	{ XK_F7, /* F19 */  ShiftMask,      "\033[18;2~",    0,    0},
-	{ XK_F7, /* F31 */  ControlMask,    "\033[18;5~",    0,    0},
-	{ XK_F7, /* F43 */  Mod4Mask,       "\033[18;6~",    0,    0},
-	{ XK_F7, /* F55 */  Mod1Mask,       "\033[18;3~",    0,    0},
-	{ XK_F8,            XK_NO_MOD,      "\033[19~",      0,    0},
-	{ XK_F8, /* F20 */  ShiftMask,      "\033[19;2~",    0,    0},
-	{ XK_F8, /* F32 */  ControlMask,    "\033[19;5~",    0,    0},
-	{ XK_F8, /* F44 */  Mod4Mask,       "\033[19;6~",    0,    0},
-	{ XK_F8, /* F56 */  Mod1Mask,       "\033[19;3~",    0,    0},
-	{ XK_F9,            XK_NO_MOD,      "\033[20~",      0,    0},
-	{ XK_F9, /* F21 */  ShiftMask,      "\033[20;2~",    0,    0},
-	{ XK_F9, /* F33 */  ControlMask,    "\033[20;5~",    0,    0},
-	{ XK_F9, /* F45 */  Mod4Mask,       "\033[20;6~",    0,    0},
-	{ XK_F9, /* F57 */  Mod1Mask,       "\033[20;3~",    0,    0},
-	{ XK_F10,           XK_NO_MOD,      "\033[21~",      0,    0},
-	{ XK_F10, /* F22 */ ShiftMask,      "\033[21;2~",    0,    0},
-	{ XK_F10, /* F34 */ ControlMask,    "\033[21;5~",    0,    0},
-	{ XK_F10, /* F46 */ Mod4Mask,       "\033[21;6~",    0,    0},
-	{ XK_F10, /* F58 */ Mod1Mask,       "\033[21;3~",    0,    0},
-	{ XK_F11,           XK_NO_MOD,      "\033[23~",      0,    0},
-	{ XK_F11, /* F23 */ ShiftMask,      "\033[23;2~",    0,    0},
-	{ XK_F11, /* F35 */ ControlMask,    "\033[23;5~",    0,    0},
-	{ XK_F11, /* F47 */ Mod4Mask,       "\033[23;6~",    0,    0},
-	{ XK_F11, /* F59 */ Mod1Mask,       "\033[23;3~",    0,    0},
-	{ XK_F12,           XK_NO_MOD,      "\033[24~",      0,    0},
-	{ XK_F12, /* F24 */ ShiftMask,      "\033[24;2~",    0,    0},
-	{ XK_F12, /* F36 */ ControlMask,    "\033[24;5~",    0,    0},
-	{ XK_F12, /* F48 */ Mod4Mask,       "\033[24;6~",    0,    0},
-	{ XK_F12, /* F60 */ Mod1Mask,       "\033[24;3~",    0,    0},
-	{ XK_F13,           XK_NO_MOD,      "\033[1;2P",     0,    0},
-	{ XK_F14,           XK_NO_MOD,      "\033[1;2Q",     0,    0},
-	{ XK_F15,           XK_NO_MOD,      "\033[1;2R",     0,    0},
-	{ XK_F16,           XK_NO_MOD,      "\033[1;2S",     0,    0},
-	{ XK_F17,           XK_NO_MOD,      "\033[15;2~",    0,    0},
-	{ XK_F18,           XK_NO_MOD,      "\033[17;2~",    0,    0},
-	{ XK_F19,           XK_NO_MOD,      "\033[18;2~",    0,    0},
-	{ XK_F20,           XK_NO_MOD,      "\033[19;2~",    0,    0},
-	{ XK_F21,           XK_NO_MOD,      "\033[20;2~",    0,    0},
-	{ XK_F22,           XK_NO_MOD,      "\033[21;2~",    0,    0},
-	{ XK_F23,           XK_NO_MOD,      "\033[23;2~",    0,    0},
-	{ XK_F24,           XK_NO_MOD,      "\033[24;2~",    0,    0},
-	{ XK_F25,           XK_NO_MOD,      "\033[1;5P",     0,    0},
-	{ XK_F26,           XK_NO_MOD,      "\033[1;5Q",     0,    0},
-	{ XK_F27,           XK_NO_MOD,      "\033[1;5R",     0,    0},
-	{ XK_F28,           XK_NO_MOD,      "\033[1;5S",     0,    0},
-	{ XK_F29,           XK_NO_MOD,      "\033[15;5~",    0,    0},
-	{ XK_F30,           XK_NO_MOD,      "\033[17;5~",    0,    0},
-	{ XK_F31,           XK_NO_MOD,      "\033[18;5~",    0,    0},
-	{ XK_F32,           XK_NO_MOD,      "\033[19;5~",    0,    0},
-	{ XK_F33,           XK_NO_MOD,      "\033[20;5~",    0,    0},
-	{ XK_F34,           XK_NO_MOD,      "\033[21;5~",    0,    0},
-	{ XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0},
+    /* keysym           mask            string      appkey appcursor */
+    { XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
+    { XK_KP_Home,       ShiftMask,      "\033[1;2H",     0,   +1},
+    { XK_KP_Home,       XK_ANY_MOD,     "\033[H",        0,   -1},
+    { XK_KP_Home,       XK_ANY_MOD,     "\033[1~",       0,   +1},
+    { XK_KP_Up,         XK_ANY_MOD,     "\033Ox",       +1,    0},
+    { XK_KP_Up,         XK_ANY_MOD,     "\033[A",        0,   -1},
+    { XK_KP_Up,         XK_ANY_MOD,     "\033OA",        0,   +1},
+    { XK_KP_Down,       XK_ANY_MOD,     "\033Or",       +1,    0},
+    { XK_KP_Down,       XK_ANY_MOD,     "\033[B",        0,   -1},
+    { XK_KP_Down,       XK_ANY_MOD,     "\033OB",        0,   +1},
+    { XK_KP_Left,       XK_ANY_MOD,     "\033Ot",       +1,    0},
+    { XK_KP_Left,       XK_ANY_MOD,     "\033[D",        0,   -1},
+    { XK_KP_Left,       XK_ANY_MOD,     "\033OD",        0,   +1},
+    { XK_KP_Right,      XK_ANY_MOD,     "\033Ov",       +1,    0},
+    { XK_KP_Right,      XK_ANY_MOD,     "\033[C",        0,   -1},
+    { XK_KP_Right,      XK_ANY_MOD,     "\033OC",        0,   +1},
+    { XK_KP_Prior,      ShiftMask,      "\033[5;2~",     0,    0},
+    { XK_KP_Prior,      XK_ANY_MOD,     "\033[5~",       0,    0},
+    { XK_KP_Begin,      XK_ANY_MOD,     "\033[E",        0,    0},
+    { XK_KP_End,        ControlMask,    "\033[J",       -1,    0},
+    { XK_KP_End,        ControlMask,    "\033[1;5F",    +1,    0},
+    { XK_KP_End,        ShiftMask,      "\033[K",       -1,    0},
+    { XK_KP_End,        ShiftMask,      "\033[1;2F",    +1,    0},
+    { XK_KP_End,        XK_ANY_MOD,     "\033[4~",       0,    0},
+    { XK_KP_Next,       ShiftMask,      "\033[6;2~",     0,    0},
+    { XK_KP_Next,       XK_ANY_MOD,     "\033[6~",       0,    0},
+    { XK_KP_Insert,     ShiftMask,      "\033[2;2~",    +1,    0},
+    { XK_KP_Insert,     ShiftMask,      "\033[4l",      -1,    0},
+    { XK_KP_Insert,     ControlMask,    "\033[L",       -1,    0},
+    { XK_KP_Insert,     ControlMask,    "\033[2;5~",    +1,    0},
+    { XK_KP_Insert,     XK_ANY_MOD,     "\033[4h",      -1,    0},
+    { XK_KP_Insert,     XK_ANY_MOD,     "\033[2~",      +1,    0},
+    { XK_KP_Delete,     ControlMask,    "\033[M",       -1,    0},
+    { XK_KP_Delete,     ControlMask,    "\033[3;5~",    +1,    0},
+    { XK_KP_Delete,     ShiftMask,      "\033[2K",      -1,    0},
+    { XK_KP_Delete,     ShiftMask,      "\033[3;2~",    +1,    0},
+    { XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
+    { XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
+    { XK_KP_Multiply,   XK_ANY_MOD,     "\033Oj",       +2,    0},
+    { XK_KP_Add,        XK_ANY_MOD,     "\033Ok",       +2,    0},
+    { XK_KP_Enter,      XK_ANY_MOD,     "\033OM",       +2,    0},
+    { XK_KP_Enter,      XK_ANY_MOD,     "\r",           -1,    0},
+    { XK_KP_Subtract,   XK_ANY_MOD,     "\033Om",       +2,    0},
+    { XK_KP_Decimal,    XK_ANY_MOD,     "\033On",       +2,    0},
+    { XK_KP_Divide,     XK_ANY_MOD,     "\033Oo",       +2,    0},
+    { XK_KP_0,          XK_ANY_MOD,     "\033Op",       +2,    0},
+    { XK_KP_1,          XK_ANY_MOD,     "\033Oq",       +2,    0},
+    { XK_KP_2,          XK_ANY_MOD,     "\033Or",       +2,    0},
+    { XK_KP_3,          XK_ANY_MOD,     "\033Os",       +2,    0},
+    { XK_KP_4,          XK_ANY_MOD,     "\033Ot",       +2,    0},
+    { XK_KP_5,          XK_ANY_MOD,     "\033Ou",       +2,    0},
+    { XK_KP_6,          XK_ANY_MOD,     "\033Ov",       +2,    0},
+    { XK_KP_7,          XK_ANY_MOD,     "\033Ow",       +2,    0},
+    { XK_KP_8,          XK_ANY_MOD,     "\033Ox",       +2,    0},
+    { XK_KP_9,          XK_ANY_MOD,     "\033Oy",       +2,    0},
+    { XK_Up,            ShiftMask,      "\033[1;2A",     0,    0},
+    { XK_Up,            Mod1Mask,       "\033[1;3A",     0,    0},
+    { XK_Up,         ShiftMask|Mod1Mask,"\033[1;4A",     0,    0},
+    { XK_Up,            ControlMask,    "\033[1;5A",     0,    0},
+    { XK_Up,      ShiftMask|ControlMask,"\033[1;6A",     0,    0},
+    { XK_Up,       ControlMask|Mod1Mask,"\033[1;7A",     0,    0},
+    { XK_Up,ShiftMask|ControlMask|Mod1Mask,"\033[1;8A",  0,    0},
+    { XK_Up,            XK_ANY_MOD,     "\033[A",        0,   -1},
+    { XK_Up,            XK_ANY_MOD,     "\033OA",        0,   +1},
+    { XK_Down,          ShiftMask,      "\033[1;2B",     0,    0},
+    { XK_Down,          Mod1Mask,       "\033[1;3B",     0,    0},
+    { XK_Down,       ShiftMask|Mod1Mask,"\033[1;4B",     0,    0},
+    { XK_Down,          ControlMask,    "\033[1;5B",     0,    0},
+    { XK_Down,    ShiftMask|ControlMask,"\033[1;6B",     0,    0},
+    { XK_Down,     ControlMask|Mod1Mask,"\033[1;7B",     0,    0},
+    { XK_Down,ShiftMask|ControlMask|Mod1Mask,"\033[1;8B",0,    0},
+    { XK_Down,          XK_ANY_MOD,     "\033[B",        0,   -1},
+    { XK_Down,          XK_ANY_MOD,     "\033OB",        0,   +1},
+    { XK_Left,          ShiftMask,      "\033[1;2D",     0,    0},
+    { XK_Left,          Mod1Mask,       "\033[1;3D",     0,    0},
+    { XK_Left,       ShiftMask|Mod1Mask,"\033[1;4D",     0,    0},
+    { XK_Left,          ControlMask,    "\033[1;5D",     0,    0},
+    { XK_Left,    ShiftMask|ControlMask,"\033[1;6D",     0,    0},
+    { XK_Left,     ControlMask|Mod1Mask,"\033[1;7D",     0,    0},
+    { XK_Left,ShiftMask|ControlMask|Mod1Mask,"\033[1;8D",0,    0},
+    { XK_Left,          XK_ANY_MOD,     "\033[D",        0,   -1},
+    { XK_Left,          XK_ANY_MOD,     "\033OD",        0,   +1},
+    { XK_Right,         ShiftMask,      "\033[1;2C",     0,    0},
+    { XK_Right,         Mod1Mask,       "\033[1;3C",     0,    0},
+    { XK_Right,      ShiftMask|Mod1Mask,"\033[1;4C",     0,    0},
+    { XK_Right,         ControlMask,    "\033[1;5C",     0,    0},
+    { XK_Right,   ShiftMask|ControlMask,"\033[1;6C",     0,    0},
+    { XK_Right,    ControlMask|Mod1Mask,"\033[1;7C",     0,    0},
+    { XK_Right,ShiftMask|ControlMask|Mod1Mask,"\033[1;8C",0,   0},
+    { XK_Right,         XK_ANY_MOD,     "\033[C",        0,   -1},
+    { XK_Right,         XK_ANY_MOD,     "\033OC",        0,   +1},
+    { XK_ISO_Left_Tab,  ShiftMask,      "\033[Z",        0,    0},
+    { XK_Return,        Mod1Mask,       "\033\r",        0,    0},
+    { XK_Return,        XK_ANY_MOD,     "\r",            0,    0},
+    { XK_Insert,        ShiftMask,      "\033[4l",      -1,    0},
+    { XK_Insert,        ShiftMask,      "\033[2;2~",    +1,    0},
+    { XK_Insert,        ControlMask,    "\033[L",       -1,    0},
+    { XK_Insert,        ControlMask,    "\033[2;5~",    +1,    0},
+    { XK_Insert,        XK_ANY_MOD,     "\033[4h",      -1,    0},
+    { XK_Insert,        XK_ANY_MOD,     "\033[2~",      +1,    0},
+    { XK_Delete,        ControlMask,    "\033[M",       -1,    0},
+    { XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
+    { XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
+    { XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
+    { XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
+    { XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
+    { XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
+    { XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
+    { XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
+    { XK_Home,          ShiftMask,      "\033[1;2H",     0,   +1},
+    { XK_Home,          XK_ANY_MOD,     "\033[H",        0,   -1},
+    { XK_Home,          XK_ANY_MOD,     "\033[1~",       0,   +1},
+    { XK_End,           ControlMask,    "\033[J",       -1,    0},
+    { XK_End,           ControlMask,    "\033[1;5F",    +1,    0},
+    { XK_End,           ShiftMask,      "\033[K",       -1,    0},
+    { XK_End,           ShiftMask,      "\033[1;2F",    +1,    0},
+    { XK_End,           XK_ANY_MOD,     "\033[4~",       0,    0},
+    { XK_Prior,         ControlMask,    "\033[5;5~",     0,    0},
+    { XK_Prior,         ShiftMask,      "\033[5;2~",     0,    0},
+    { XK_Prior,         XK_ANY_MOD,     "\033[5~",       0,    0},
+    { XK_Next,          ControlMask,    "\033[6;5~",     0,    0},
+    { XK_Next,          ShiftMask,      "\033[6;2~",     0,    0},
+    { XK_Next,          XK_ANY_MOD,     "\033[6~",       0,    0},
+    { XK_F1,            XK_NO_MOD,      "\033OP" ,       0,    0},
+    { XK_F1, /* F13 */  ShiftMask,      "\033[1;2P",     0,    0},
+    { XK_F1, /* F25 */  ControlMask,    "\033[1;5P",     0,    0},
+    { XK_F1, /* F37 */  Mod4Mask,       "\033[1;6P",     0,    0},
+    { XK_F1, /* F49 */  Mod1Mask,       "\033[1;3P",     0,    0},
+    { XK_F1, /* F61 */  Mod3Mask,       "\033[1;4P",     0,    0},
+    { XK_F2,            XK_NO_MOD,      "\033OQ" ,       0,    0},
+    { XK_F2, /* F14 */  ShiftMask,      "\033[1;2Q",     0,    0},
+    { XK_F2, /* F26 */  ControlMask,    "\033[1;5Q",     0,    0},
+    { XK_F2, /* F38 */  Mod4Mask,       "\033[1;6Q",     0,    0},
+    { XK_F2, /* F50 */  Mod1Mask,       "\033[1;3Q",     0,    0},
+    { XK_F2, /* F62 */  Mod3Mask,       "\033[1;4Q",     0,    0},
+    { XK_F3,            XK_NO_MOD,      "\033OR" ,       0,    0},
+    { XK_F3, /* F15 */  ShiftMask,      "\033[1;2R",     0,    0},
+    { XK_F3, /* F27 */  ControlMask,    "\033[1;5R",     0,    0},
+    { XK_F3, /* F39 */  Mod4Mask,       "\033[1;6R",     0,    0},
+    { XK_F3, /* F51 */  Mod1Mask,       "\033[1;3R",     0,    0},
+    { XK_F3, /* F63 */  Mod3Mask,       "\033[1;4R",     0,    0},
+    { XK_F4,            XK_NO_MOD,      "\033OS" ,       0,    0},
+    { XK_F4, /* F16 */  ShiftMask,      "\033[1;2S",     0,    0},
+    { XK_F4, /* F28 */  ControlMask,    "\033[1;5S",     0,    0},
+    { XK_F4, /* F40 */  Mod4Mask,       "\033[1;6S",     0,    0},
+    { XK_F4, /* F52 */  Mod1Mask,       "\033[1;3S",     0,    0},
+    { XK_F5,            XK_NO_MOD,      "\033[15~",      0,    0},
+    { XK_F5, /* F17 */  ShiftMask,      "\033[15;2~",    0,    0},
+    { XK_F5, /* F29 */  ControlMask,    "\033[15;5~",    0,    0},
+    { XK_F5, /* F41 */  Mod4Mask,       "\033[15;6~",    0,    0},
+    { XK_F5, /* F53 */  Mod1Mask,       "\033[15;3~",    0,    0},
+    { XK_F6,            XK_NO_MOD,      "\033[17~",      0,    0},
+    { XK_F6, /* F18 */  ShiftMask,      "\033[17;2~",    0,    0},
+    { XK_F6, /* F30 */  ControlMask,    "\033[17;5~",    0,    0},
+    { XK_F6, /* F42 */  Mod4Mask,       "\033[17;6~",    0,    0},
+    { XK_F6, /* F54 */  Mod1Mask,       "\033[17;3~",    0,    0},
+    { XK_F7,            XK_NO_MOD,      "\033[18~",      0,    0},
+    { XK_F7, /* F19 */  ShiftMask,      "\033[18;2~",    0,    0},
+    { XK_F7, /* F31 */  ControlMask,    "\033[18;5~",    0,    0},
+    { XK_F7, /* F43 */  Mod4Mask,       "\033[18;6~",    0,    0},
+    { XK_F7, /* F55 */  Mod1Mask,       "\033[18;3~",    0,    0},
+    { XK_F8,            XK_NO_MOD,      "\033[19~",      0,    0},
+    { XK_F8, /* F20 */  ShiftMask,      "\033[19;2~",    0,    0},
+    { XK_F8, /* F32 */  ControlMask,    "\033[19;5~",    0,    0},
+    { XK_F8, /* F44 */  Mod4Mask,       "\033[19;6~",    0,    0},
+    { XK_F8, /* F56 */  Mod1Mask,       "\033[19;3~",    0,    0},
+    { XK_F9,            XK_NO_MOD,      "\033[20~",      0,    0},
+    { XK_F9, /* F21 */  ShiftMask,      "\033[20;2~",    0,    0},
+    { XK_F9, /* F33 */  ControlMask,    "\033[20;5~",    0,    0},
+    { XK_F9, /* F45 */  Mod4Mask,       "\033[20;6~",    0,    0},
+    { XK_F9, /* F57 */  Mod1Mask,       "\033[20;3~",    0,    0},
+    { XK_F10,           XK_NO_MOD,      "\033[21~",      0,    0},
+    { XK_F10, /* F22 */ ShiftMask,      "\033[21;2~",    0,    0},
+    { XK_F10, /* F34 */ ControlMask,    "\033[21;5~",    0,    0},
+    { XK_F10, /* F46 */ Mod4Mask,       "\033[21;6~",    0,    0},
+    { XK_F10, /* F58 */ Mod1Mask,       "\033[21;3~",    0,    0},
+    { XK_F11,           XK_NO_MOD,      "\033[23~",      0,    0},
+    { XK_F11, /* F23 */ ShiftMask,      "\033[23;2~",    0,    0},
+    { XK_F11, /* F35 */ ControlMask,    "\033[23;5~",    0,    0},
+    { XK_F11, /* F47 */ Mod4Mask,       "\033[23;6~",    0,    0},
+    { XK_F11, /* F59 */ Mod1Mask,       "\033[23;3~",    0,    0},
+    { XK_F12,           XK_NO_MOD,      "\033[24~",      0,    0},
+    { XK_F12, /* F24 */ ShiftMask,      "\033[24;2~",    0,    0},
+    { XK_F12, /* F36 */ ControlMask,    "\033[24;5~",    0,    0},
+    { XK_F12, /* F48 */ Mod4Mask,       "\033[24;6~",    0,    0},
+    { XK_F12, /* F60 */ Mod1Mask,       "\033[24;3~",    0,    0},
+    { XK_F13,           XK_NO_MOD,      "\033[1;2P",     0,    0},
+    { XK_F14,           XK_NO_MOD,      "\033[1;2Q",     0,    0},
+    { XK_F15,           XK_NO_MOD,      "\033[1;2R",     0,    0},
+    { XK_F16,           XK_NO_MOD,      "\033[1;2S",     0,    0},
+    { XK_F17,           XK_NO_MOD,      "\033[15;2~",    0,    0},
+    { XK_F18,           XK_NO_MOD,      "\033[17;2~",    0,    0},
+    { XK_F19,           XK_NO_MOD,      "\033[18;2~",    0,    0},
+    { XK_F20,           XK_NO_MOD,      "\033[19;2~",    0,    0},
+    { XK_F21,           XK_NO_MOD,      "\033[20;2~",    0,    0},
+    { XK_F22,           XK_NO_MOD,      "\033[21;2~",    0,    0},
+    { XK_F23,           XK_NO_MOD,      "\033[23;2~",    0,    0},
+    { XK_F24,           XK_NO_MOD,      "\033[24;2~",    0,    0},
+    { XK_F25,           XK_NO_MOD,      "\033[1;5P",     0,    0},
+    { XK_F26,           XK_NO_MOD,      "\033[1;5Q",     0,    0},
+    { XK_F27,           XK_NO_MOD,      "\033[1;5R",     0,    0},
+    { XK_F28,           XK_NO_MOD,      "\033[1;5S",     0,    0},
+    { XK_F29,           XK_NO_MOD,      "\033[15;5~",    0,    0},
+    { XK_F30,           XK_NO_MOD,      "\033[17;5~",    0,    0},
+    { XK_F31,           XK_NO_MOD,      "\033[18;5~",    0,    0},
+    { XK_F32,           XK_NO_MOD,      "\033[19;5~",    0,    0},
+    { XK_F33,           XK_NO_MOD,      "\033[20;5~",    0,    0},
+    { XK_F34,           XK_NO_MOD,      "\033[21;5~",    0,    0},
+    { XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0},
 };
 
 /*
@@ -724,7 +742,7 @@ static Key key[] = {
  * If no match is found, regular selection is used.
  */
 static uint selmasks[] = {
-	[SEL_RECTANGULAR] = Mod1Mask,
+    [SEL_RECTANGULAR] = Mod1Mask,
 };
 
 /*
@@ -732,6 +750,6 @@ static uint selmasks[] = {
  * of single wide characters.
  */
 static char ascii_printable[] =
-	" !\"#$%&'()*+,-./0123456789:;<=>?"
-	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
-	"`abcdefghijklmnopqrstuvwxyz{|}~";
+    " !\"#$%&'()*+,-./0123456789:;<=>?"
+    "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
+    "`abcdefghijklmnopqrstuvwxyz{|}~";
