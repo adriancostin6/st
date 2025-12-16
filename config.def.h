@@ -17,17 +17,25 @@ static char *fonts[] = {
     //IosevkaTermSlab Nerd Font Mono,IosevkaTermSlab NFM:style=Regular
     //IosevkaTermSlab Nerd Font Mono,IosevkaTermSlab NFM,IosevkaTermSlab NFM Medium:style=Medium,Regular
     // Mono
-    "IosevkaTermSlab Nerd Font Mono:style=Light:pixelsize=12",
-    "IosevkaTermSlab Nerd Font Mono:style=Regular:pixelsize=12",
-    "IosevkaTermSlab Nerd Font Mono:style=Medium:pixelsize=12",
+    "IosevkaTermSlab Nerd Font Mono:style=Light:pixelsize=12:antialias=true:autohint=true",
+    "IosevkaTermSlab Nerd Font Mono:style=Regular:pixelsize=12:antialias=true:autohint=true",
+    "IosevkaTermSlab Nerd Font Mono:style=Medium:pixelsize=12:antialias=true:autohint=true",
     // Regular
-    "IosevkaTermSlab Nerd Font:style=Light:pixelsize=12",
-    "IosevkaTermSlab Nerd Font:style=Regular:pixelsize=12",
-    "IosevkaTermSlab Nerd Font:style=Medium:pixelsize=12",
+    "IosevkaTermSlab Nerd Font:style=Light:pixelsize=12:antialias=true:autohint=true",
+    "IosevkaTermSlab Nerd Font:style=Regular:pixelsize=12:antialias=true:autohint=true",
+    "IosevkaTermSlab Nerd Font:style=Medium:pixelsize=12:antialias=true:autohint=true",
 
     "Liberation Mono:pixelsize=12",
 };
 static size_t currentfont = 0;
+
+/* Spare fonts */
+static char *font2[] = {
+/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
+/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+    "Symbola:style=Regular:pixelsize=12:antialias=true:autohint=true"
+};
+
 static int borderpx = 2;
 
 /*
